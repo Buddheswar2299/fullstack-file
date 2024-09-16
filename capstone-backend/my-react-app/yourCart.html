@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="cartAndYoursCart.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins',sans-serif;
+    }
+    .home-whole{
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: space-between;
+    }
+    main{
+        display: grid;
+        height: 100vh;
+        grid-template-rows: 10% auto;
+    }
+    .home-whole-1{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .home-whole-1 a{
+        margin: 0 12px;
+    }
+    .home-whole-2{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 30%;
+    }
+    .home-whole-2 a {
+        height: 50px ;
+        width: 50px;
+        background-color: azure;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .home-whole-2 form button{
+        cursor: pointer;
+        padding: 0.7rem ;
+        border-radius: 13px;
+        width: 100%;
+        font-size: bolder;
+        border: none;
+        color: white;
+        background-color: #039BE5;
+    }
+    table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    
+    }
+
+    td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+
+    tr:nth-child(even) {
+    background-color: #dddddd;
+    }
+    .yours-cart{
+        display: grid;
+        grid-template-columns: 60% auto;
+    }
+    .yours-cart-1{
+       
+        max-height: 500px;
+        overflow-y: scroll;
+    }
+    .yours-cart .yours-cart-image{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .yours-cart .yours-cart-image img{
+        width: 90%;
+        height: auto;
+    }
+    #yours-cart-btn{
+        padding: 0.6rem;
+        width: 150px;
+        border-radius: 18px;
+        background-color: #2196F3;
+        outline: none;
+        color: white;
+        margin-bottom: 2rem;
+        cursor: pointer;
+    }
+    .yours-cart footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .yours-cart footer h2{
+        margin-top: 2rem;
+    }
+    </style>
+</head>
+<body>
+<main>
+    <div class="home-whole">
+        <div class="home-whole-1">
+            <a href=""><i class="fa-solid fa-house"></i></a>
+            <h1>STAR SHOPPER</h1>
+         </div>
+         <div class="home-whole-2">
+            <a href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            <!-- <a href="/yourCart.html"><i class="fa-solid fa-user"></i></a> -->
+            <form action="http://localhost:5501/logout" method="get"><button id="logout-btn">Logout</button></form>
+         </div>
+    </div>
+    <div class="yours-cart">
+        <footer>
+            <h2>Yours Cart</h2>
+            <div class="yours-cart-1">  
+            </div>
+            <div class="result"></div>
+            <a href="/purchase.html"><button id="yours-cart-btn">Purchase</button></a>
+        </footer>
+        <div class="yours-cart-image">
+            <img src="download.jpeg" alt="">
+        </div>
+    </div>
+</main>
+    
+</body>
+</html>
+
+<script tyep="module">
+ 
+   let objectsFromLocalStorage = JSON.parse(localStorage.getItem('cart'))
+
+//    console.log(objectsFromLocalStorage)
+   let total = 0
+   if(objectsFromLocalStorage){
+    objectsFromLocalStorage.forEach(object=>{
+        const dollarString = object.title
+        const numbers = dollarString.replace(/\$/g, '').split(',').map(Number);
+        total = total+ numbers[0]
+        console.log(total)
+
+    })
+}
+    document.querySelector('.result').textContent = "Total: "+total
+    
+   function renderObjectsFromLocalStorage(objectsFromLocalStorage){
+if(objectsFromLocalStorage){
+    var table = document.createElement('TABLE');
+    table.border = '1';
+    let tableHead = document.createElement('THEAD')
+    let tableHeader1 = document.createElement('TH')
+    let tableHeader2 = document.createElement('TH')
+    tableHead.append(tableHeader1)
+    tableHead.append(tableHeader2)
+    table.append(tableHead)
+    // let tableHeader = document.createElement('TH')
+    for(i = 0; i<1; i++){
+        let tdHeader1 = document.createElement('TD')
+        tdHeader1.append(document.createTextNode('Product'))
+        tableHeader1.append(tdHeader1)
+    }
+    for(i = 0; i<1; i++){
+        let tdHeader2 = document.createElement('TD')
+        tdHeader2.append(document.createTextNode('Price'))
+        tableHeader2.append(tdHeader2)
+    }
+
+    var tableBody = document.createElement('TBODY');
+    table.appendChild(tableBody);
+for(let objects of objectsFromLocalStorage){
+    for (var i = 0; i < 1; i++) {
+        var tr = document.createElement('TR');
+        tableBody.appendChild(tr);
+
+    for (var j = 0; j < 1; j++) {
+      var td = document.createElement('TD');
+      td.width = '300';
+
+      td.appendChild(document.createTextNode(objects.price));
+    //   td.appendChild(document.createTextNode(objectsFromLocalStorage.price))
+      tr.appendChild(td);
+    }
+    for(let k=0;k<1;k++){
+        let td= document.createElement('TD');
+        td.width = '75'
+        td.append(document.createTextNode(objects.title))
+        tr.append(td)
+    }
+
+  }
+
+
+}
+  document.querySelector('.yours-cart-1').appendChild(table);
+}else{
+    let yoursCart = document.querySelector('.yours-cart-1')
+    yoursCart.style.color = 'red'
+    yoursCart.innerHTML = 'NO ITEMS ADDED YET'
+}
+   }
+   renderObjectsFromLocalStorage(objectsFromLocalStorage)
+
+
+
+   document.querySelector('#yours-cart-btn').addEventListener('click',(e)=>{
+    console.log(objectsFromLocalStorage)
+    localStorage.setItem('purchase',JSON.stringify(objectsFromLocalStorage))
+    localStorage.removeItem('cart')
+   })
+
+   
+</script>

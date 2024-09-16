@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<main>
+    <div class="home-whole">
+        <div class="home-whole-1">
+            <a href=""><i class="fa-solid fa-house"></i></a>
+            <h1>STAR SHOPPER</h1>
+         </div>
+         <div class="home-whole-2">
+            <a href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="/yourCart.html"><i class="fa-solid fa-user"></i></a>
+            <form action="http://localhost:5501/logout" method="get"><button id="logout-btn">Logout</button></form>
+         </div>
+
+    </div>
+    
+    <div class="home-whole-body">
+        <div class="body-whole-1"><i class="fa-solid fa-arrow-left-long"></i></div>
+        <div class="body-whole-2">
+            <h2>SHOP WITH UTMOST</h2>
+            <h1 class="h1-confidence">CONFIDENCE</h1>
+            <P>Shop from the latest trendy clothes to the best gadgets. With Star Shopper you save 10% every time you shop!</P>
+            <a href="/cart.html"><button>Browse Products</button></a>
+            <p>Products available from:</p>
+            <div class="a-div">
+                <a href=""><i class="fa-brands fa-wordpress"></i></a>
+                <a href=""><i class="fa-brands fa-slack"></i></a>
+                <a href=""><i class="fa-brands fa-joomla"></i></a>
+                <a href=""><i class="fa-brands fa-yahoo"></i></a>
+                <a href=""><i class="fa-brands fa-stumbleupon"></i></a>
+            </div>
+        </div>
+        <div id="img-div"><img src="download-person.jpeg" alt="" id="img-inside-div"></div>
+        <div class="body-whole-3"><i class="fa-solid fa-arrow-right"></i></p></div>
+    </div>
+</main>
+</body>
+</html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins',sans-serif;
+        scroll-behavior: smooth;
+    }
+    main{
+        display: grid;
+        height: 100vh;
+        grid-template-rows: 10% auto;
+    }
+    .home-whole{
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: space-between;
+    }
+    .home-whole-1{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .home-whole-1 a{
+        margin: 0 12px;
+    }
+    .home-whole-2{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 30%;
+    }
+    .home-whole-2 a {
+        height: 50px ;
+        width: 50px;
+        background-color: azure;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .home-whole-2 button{
+        cursor: pointer;
+        padding: 0.8rem ;
+        border-radius: 13px;
+        width: 100%;
+        font-size: bolder;
+        color: white;
+        border: none;
+        background-color: #03A9F4;
+    }
+    .home-whole-body{
+        background-color: aqua;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 5% auto 40% 5%;
+    }
+    #img-div{
+
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #img-inside-div{
+        height: 90%;
+        width: 90%;
+        border-radius: 50%;
+        
+    }
+    .body-whole-1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .body-whole-3{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .body-whole-1 i,.body-whole-3 i{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background-color: #7C4DFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: whitesmoke;
+    }
+    .body-whole-2{
+        margin: 5rem 0 ;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 70%;
+
+    }
+    .h1-confidence{
+        color: pink ;
+        font-size: 4rem;
+    }
+    .body-whole-2 button{
+        cursor: pointer;
+        width: 30%;
+        padding: 0.7rem;
+        border-radius: 12px;
+        background-color: #03A9F4;
+        color: white;
+        border: none;
+    }
+    .body-whole-2 p{
+        width: 40%;
+    }
+    .a-div{
+        display: flex;
+        width: 60%;
+        justify-content: space-between;
+    }
+    .a-div a{
+        height: 50px;
+        width: 50px;
+        background-color: white;
+        border-radius: 50%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    
+
+
+
+</style>
+
+<script>
+    const leftArrow = document.querySelector('.body-whole-1')
+    const rightArrow = document.querySelector('.body-whole-3')
+    const hTag = document.querySelector('.h1-confidence')
+    const imgTag = document.querySelector('#img-inside-div')
+
+    let hContents = ['Confidence','Style','Discounts']
+    let images = ['download-person.jpeg','person2.jpeg','person3.jpeg']
+    let currentIndex = 0
+    let image = images[currentIndex]
+    let hContent = hContents[currentIndex]
+    leftArrow.addEventListener('click',()=>{
+        currentIndex = (currentIndex+1)%images.length
+        hContent = hContents[currentIndex]
+        image = images[currentIndex]
+        imgTag.src= image
+        hTag.textContent = hContent
+    })
+    rightArrow.addEventListener('click',()=>{
+        currentIndex = (currentIndex-1+images.length)%images.length
+        hContent = hContents[currentIndex]
+        image = images[currentIndex]
+        imgTag.src= image
+        hTag.textContent = hContent
+    })
+</script>

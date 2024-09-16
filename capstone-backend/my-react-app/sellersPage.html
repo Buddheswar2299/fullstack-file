@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+   <div class="sellers-page">
+        <div class="sellers-left">
+            <img src="download (1) copy.jpeg" alt="">
+            <a href="./shoppersPage.html"><button id="shoppers-navigate-btn">Go to Shoppers Login</button></a>
+            <a href="./index.html"><button>Go to Home</button></a>
+        </div>
+
+        <div class="sellers-right">
+            <form action="http://localhost:5501/sellerssignin" method="post">
+                <p>Login and start shopping from your favorite brands. Refer a friend and got 50% OFF</p>
+                <input type="email" placeholder="Enter Email" id="sellers-login-form-email" name="email">
+                <input type="password" placeholder="Enter password" id="seller-login-form-password" name="password">
+                <button id="sellers-login-form-btn" type="submit">Sellers Login</button>
+                <a href="./sellersSignuppage.html"><p id="create-account-seller">create account</p></a>
+            </form>
+        </div>
+    </div>
+
+    
+
+
+
+
+</body>
+</html>
+
+<script>
+    const createAccountSeller = document.querySelector('#create-account-seller')
+
+    console.log(createAccountSeller)
+
+    createAccountSeller.addEventListener('click',()=>{
+        let rendercreateAccountForSeller = ` <div class="sellers-right-seller-create">
+            <form action="">
+                <p>Login and start shopping from your favorite brands. Refer a friend and got 50% OFF</p>
+                <input 
+                type="email"
+                placeholder="Enter Email" 
+                id="sellers-login-form-email-seller-create">
+                <input type="password" placeholder="Enter password" id="seller-login-form-password-seller-create1">
+                <input type="password" placeholder="Re-enter password" id="seller-login-form-password-seller-create2">
+                <button id="sellers-login-form-create-seller-btn">Create Account</button>
+                <a href="./sellersPage.html">Login</a>
+            </form>
+        </div>`
+
+
+
+        document.querySelector('.sellers-right').innerHTML = rendercreateAccountForSeller
+
+    })
+    
+ 
+</script>

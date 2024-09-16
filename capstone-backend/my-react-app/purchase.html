@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins',sans-serif;
+    }
+    main{
+        display: grid;
+        height: 100vh;
+        grid-template-rows: 10% auto;
+    }
+    .home-whole{
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: space-between;
+    }
+    .home-whole-1{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .home-whole-1 a{
+        margin: 0 12px;
+    }
+    .home-whole-2{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 30%;
+    }
+    .home-whole-2 a {
+        height: 50px ;
+        width: 50px;
+        background-color: azure;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .home-whole-2 form button{
+        cursor: pointer;
+        padding: 0.7rem ;
+        border-radius: 13px;
+        width: 100%;
+        font-size: bolder;
+        border: none;
+        color: white;
+        background-color: #039BE5;
+    }
+    .img-render{
+        width: 200px;
+        height: 200px;
+    }
+    .mainDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 220px;
+        height: 220px;
+        background-color: #039BE5;
+    }
+    .price{
+        color: white;
+    }
+    .insideProductInfo{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 12px;
+    }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="home-whole">
+            <div class="home-whole-1">
+                <a href=""><i class="fa-solid fa-house"></i></a>
+                <h1>STAR SHOPPER</h1>
+             </div>
+             <div class="home-whole-2">
+                <a href="/yourCart.html"><i class="fa-solid fa-user"></i></a>
+                <form action="http://localhost:5501/logout" method="get"><button id="logout-btn">Logout</button></form>
+             </div>
+        </div>
+        
+        <div class="productInfo">
+            <h1>Your Orders:</h1>
+            <div class="insideProductInfo"></div>
+        </div>
+    </main>
+    
+</body>
+</html>
+<script>
+    let objectsFromLocalStorage = JSON.parse(localStorage.getItem('purchase'))
+
+    
+    localStorage.setItem('purchased',JSON.stringify(objectsFromLocalStorage))
+    let objectsFromLocal = JSON.parse(localStorage.getItem('purchased'))
+    objectsFromLocal.forEach(objects=>{
+        const mainDiv = document.createElement('div')
+        const image = document.createElement('img')
+        const pTag = document.createElement('p')
+        image.src=objects.img
+        image.className = 'img-render'
+        mainDiv.className = 'mainDiv'
+        pTag.className = 'price'
+        pTag.innerText = objects.title
+        mainDiv.append(image,pTag)
+        
+        document.querySelector('.insideProductInfo').append(mainDiv)
+    })
+
+    window.onload = function(){
+        console.log(JSON.parse(localStorage.getItem('purchased')))
+        let purchasedLocal = JSON.parse(localStorage.getItem('purchased'))
+        purchasedLocal.forEach(purchased=>{
+            localStorage.setItem('purchased1',)
+        })
+    }
+
+    
+</script>
