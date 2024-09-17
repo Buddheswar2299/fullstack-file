@@ -26,25 +26,25 @@ db.on('error',(error)=>{
 
 
 app.get('/signin',(req,res)=>{
-    res.redirect('http://localhost:5173/shoppersPage.html')
+    res.redirect('https://fullstack-file-2.onrender.com/shoppersPage.html')
 })
 app.get('/signup',(req,res)=>{
-    res.redirect('http://localhost:5173/shoppersSignup.html')
+    res.redirect('https://fullstack-file-2.onrender.com/shoppersSignup.html')
 })
 app.get('/gethome',(req,res)=>{
-    res.redirect('http://localhost:5173/home.html')
+    res.redirect('https://fullstack-file-2.onrender.com/home.html')
 })
 app.get('/sellerssignin',(req,res)=>{
-    res.redirect('http://localhost:5173/sellersPage.html')
+    res.redirect('https://fullstack-file-2.onrender.com/sellersPage.html')
 })
 app.get('/sellerssignup',(req,res)=>{
-    res.redirect('http://localhost:5173/sellersSignuppage.html')
+    res.redirect('https://fullstack-file-2.onrender.com/sellersSignuppage.html')
 })
 app.get('/gethomeseller',(req,res)=>{
-    res.redirect('http://localhost:5173/sellersapi.html')
+    res.redirect('https://fullstack-file-2.onrender.com/sellersapi.html')
 })
 app.get('/initial',(req,res)=>{
-    res.redirect('http://localhost:5173/index.html')
+    res.redirect('https://fullstack-file-2.onrender.com/index.html')
 })
 app.post('/signup',async(req,res)=>{
     const{email,password:plainTextPassword1,rePassword:plainTextPassword2} = req.body
