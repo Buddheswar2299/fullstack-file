@@ -15,12 +15,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.set('view engine','ejs') 
 app.use(cors())
 mongoose.connect(process.env.MONGO_URI)
-const db = mongoose.connection('mongodb://yourMongoDBURI',{
-     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    ssl: true,
-    tlsInsecure: true
-})
+const db = mongoose.connection
 
 db.once('open',()=>{
     console.log('successfully connected to the db')
