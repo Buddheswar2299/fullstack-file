@@ -167,8 +167,12 @@ app.get('/logout',(req,res)=>{
 const useRouter = require('./routes/user')
 app.use('/users/',useRouter)
 
-const port = process.env.PORT || 5501
 
-app.listen(port)
+const PORT = process.env.PORT || 10000;
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on http://0.0.0.0:${PORT}`);
+});
+
 
 console.log('server is listening on 5501')
